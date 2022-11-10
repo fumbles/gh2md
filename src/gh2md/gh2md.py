@@ -170,7 +170,7 @@ class GithubAPI:
     token: str = None
     per_page: int = 100
 
-    _ENDPOINT = "https://api.github.com/graphql"
+    _ENDPOINT = "https://github.ibm.com/api/graphql"
     _REPO_QUERY = """
         query(
           $owner: String!
@@ -764,10 +764,10 @@ def format_issue_to_markdown(issue: GithubIssue) -> Tuple[str, str]:
     )
     slug = ".".join(
         [
-            issue.created_at.strftime("%Y-%m-%d"),
+            #issue.created_at.strftime("%Y-%m-%d"),
             str(issue.number),
             slugtype,
-            issue.state,
+            #issue.state,
         ]
     )
     return slug, formatted_issue.replace("\r", "")
